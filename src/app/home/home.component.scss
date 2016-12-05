@@ -1,4 +1,7 @@
-// component styles are encapsulated and only applied to their components
-* {
+:host div {
+  padding: 10rem;
+}
 
+:host * {
+  margin-bottom: 1rem;
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ApiService, HardwareComponent } from '../shared';
+import { ApiService, Controller } from '../shared';
 
 @Component({
   selector: 'my-home',
@@ -9,13 +9,13 @@ import { ApiService, HardwareComponent } from '../shared';
 })
 export class HomeComponent implements OnInit {
 
-  components: HardwareComponent[];
+  controllers: Controller[];
 
   constructor(private api: ApiService) {
   }
 
   ngOnInit() {
-    this.api.getComponents().then(components => this.components = components);
+    this.api.getControllers().then(controllers => this.controllers = controllers);
   }
 
 }
