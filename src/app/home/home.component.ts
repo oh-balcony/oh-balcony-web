@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ApiService, HardwareComponent } from '../shared';
+
 @Component({
   selector: 'my-home',
   templateUrl: './home.component.html',
@@ -7,12 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() {
-    // Do stuff
+  components: HardwareComponent[];
+
+  constructor(private api: ApiService) {
   }
 
   ngOnInit() {
-    console.log('Hello Home');
+    this.api.getComponents().then(components => this.components = components);
   }
 
 }
