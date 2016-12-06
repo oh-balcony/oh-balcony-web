@@ -1,27 +1,30 @@
 import { Injectable } from '@angular/core';
-import { Controller } from './model';
+import { Headers, Http } from '@angular/http';
+
+import { SystemState } from './model';
 
 @Injectable()
 export class ApiService {
-  getControllers(): Promise<Controller[]> {
-    // TODO get components from web service
-    return Promise.resolve([{
-      id: 'controller1',
-      name: 'Controller',
-      pumps: [
-        { id: 'pump1', name: 'Pump 1' },
-        { id: 'pump2', name: 'Pump 2' }
-      ],
-      valves: [
-        { id: 'valve1', name: 'Valve 1' }
-      ],
-      tanks: [
-        { id: 'tank1', name: 'Tank 1' }
-      ],
-      moistureSensors: [
-        { id: 'moisture1', name: 'Erdbeeren' },
-        { id: 'moisture1', name: 'Wein' }
-      ]
-    }]);
+
+  // TODO don't hardcode
+  private apiEndpointBase = 'http://localhost:8080';
+
+  private endpointSystemState = '/';
+
+  constructor(private http: Http) { }
+
+  getSystemState(): Promise<SystemState> {
+    return this.http.get(this.apiEndpointBase + this.endpointSystemState)
+      .toPromise()
+      .then(response => {
+        let jsonData = response.json();
+        return jsonData as SystemState;
+      })
+      .catch(this.handleError);
+  }
+
+  private handleError(error: any): Promise<any> {
+    console.error('An error occurred', error); // TODO better error handling
+    return Promise.reject(error.message || error);
   }
 }

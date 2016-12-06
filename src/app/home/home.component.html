@@ -1,7 +1,10 @@
+<div *ngIf="systemState">
+  <div *ngFor="let controller of systemState.controllers">
+    <tank *ngFor="let tank of controller.tanks" [tank]="tank"></tank>
+    <pump *ngFor="let pump of controller.pumps" [pump]="pump"></pump>
+    <valve *ngFor="let valve of controller.valves" [valve]="valve"></valve>
+    <moisture-sensor *ngFor="let sensor of controller.moistureSensors" [sensor]="sensor"></moisture-sensor>
+  </div>
 
-<div *ngFor="let controller of controllers">
-  <tank *ngFor="let tank of controller.tanks" [tank]="tank"></tank>
-  <pump *ngFor="let pump of controller.pumps" [pump]="pump"></pump>
-  <valve *ngFor="let valve of controller.valves" [valve]="valve"></valve>
-  <moisture-sensor *ngFor="let sensor of controller.moistureSensors" [sensor]="sensor"></moisture-sensor>
+  <zone *ngFor="let hardwareInZone of hardwareInZones" [hardwareInZone]="hardwareInZone"></zone>
 </div>

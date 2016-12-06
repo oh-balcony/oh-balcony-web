@@ -1,6 +1,16 @@
+export class SystemState {
+    controllers: Controller[];
+    zones: Zone[];
+}
+
 export abstract class Hardware {
     id: string;
     name: string;
+}
+
+export class HardwareReference {
+    controllerId: string;
+    componentId: string;
 }
 
 export class Controller extends Hardware {
@@ -20,4 +30,15 @@ export class Tank extends Hardware {
 }
 
 export class MoistureSensor extends Hardware {
+}
+
+export class Zone {
+    hardware: HardwareReference[];
+}
+
+export class HardwareInZone {
+    pumps: Pump[] = [];
+    valves: Valve[] = [];
+    tanks: Tank[] = [];
+    moistureSensors: MoistureSensor[] = [];
 }

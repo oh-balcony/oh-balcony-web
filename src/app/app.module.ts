@@ -8,6 +8,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { PumpComponent, ValveComponent, MoistureSensorComponent, TankComponent } from './hardware-components/hardware.component';
+import { ZoneComponent } from './hardware-components/zone.component';
 import { ApiService } from './shared';
 import { routing } from './app.routing';
 
@@ -24,6 +25,7 @@ import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
   declarations: [
     AppComponent,
     HomeComponent,
+    ZoneComponent,
     PumpComponent,
     ValveComponent,
     MoistureSensorComponent,
