@@ -33,7 +33,7 @@ export class MoistureSensor extends Hardware {
 }
 
 export class Zone {
-    hardware: HardwareReference[];
+    hardwareReferences: HardwareReference[];
 }
 
 export class HardwareInZone {

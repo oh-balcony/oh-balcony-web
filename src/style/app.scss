@@ -1,3 +1,56 @@
 // styles in src/style directory are applied to the whole page
 
 @import "~bootstrap/scss/bootstrap";
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer */
+  height: 60px;
+  line-height: 60px; /* Vertically center the text there */
+  background-color: #f5f5f5;
+}
+footer > div {
+    @extend .container;
+}
+
+main {
+    @extend .container;
+}
+
+h1 {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.component {
+    @extend .card;
+    @extend .card-block;
+    border-radius: 0.35rem;
+}
+
+zone {
+    @extend .component;
+}
+
+.hardware {
+  @extend .component;
+}
+
+.hardware-icon {
+  display: inline-block;
+  width: 3rem;
+  text-align: center;
+}
+.hardware-icon img {
+  height: 2.5rem;
+}

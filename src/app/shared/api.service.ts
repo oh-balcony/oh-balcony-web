@@ -7,9 +7,9 @@ import { SystemState } from './model';
 export class ApiService {
 
   // TODO don't hardcode
-  private apiEndpointBase = 'http://localhost:8080';
+  private apiEndpointBase = 'http://localhost:8080/api';
 
-  private endpointSystemState = '/';
+  private endpointSystemState = '/systemState';
 
   constructor(private http: Http) { }
 

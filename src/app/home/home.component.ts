@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
     this.hardwareInZones = [];
     for (let zone of systemState.zones) {
       let hardwareInZone = new HardwareInZone();
-      for (let ref of zone.hardware) {
+      for (let ref of zone.hardwareReferences) {
         let controller = this.getControllerById(ref.controllerId);
         if (controller) {
           this.copyHardwareFromControllerById(controller, hardwareInZone, ref.componentId);
@@ -48,25 +48,6 @@ export class HomeComponent implements OnInit {
     if (hw) {
       to.push(hw);
     }
-  }
-
-  getHardwareInZone(zone: Zone): HardwareInZone {
-    let hardwareInZone = new HardwareInZone();
-    for (let ref of zone.hardware) {
-      let hw = this.getHardwareByReference(ref);
-      if (hw instanceof Pump) {
-        hardwareInZone.pumps.push(hw);
-      } else if (hw instanceof Valve) {
-        hardwareInZone.valves.push(hw);
-      } else if (hw instanceof Tank) {
-        hardwareInZone.tanks.push(hw);
-      } else if (hw instanceof MoistureSensor) {
-        hardwareInZone.moistureSensors.push(hw);
-      } else {
-        console.error('Unexpected hw type: ' + hw);
-      }
-    }
-    return hardwareInZone;
   }
 
   getControllerById(id: string): Controller {
