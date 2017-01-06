@@ -12,3 +12,10 @@ import '@angularclass/hmr';
 // Other vendors for example jQuery, Lodash or Bootstrap
 // You can import js, ts, css, sass, ...
 import '@ng-bootstrap/ng-bootstrap';
+
+import 'font-awesome/css/font-awesome.css';
+
+// moment.js
+import 'moment';
+
+import 'chart.js/src/chart.js';

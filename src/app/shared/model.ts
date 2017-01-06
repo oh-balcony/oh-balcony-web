@@ -42,3 +42,8 @@ export class HardwareInZone {
     tanks: Tank[] = [];
     moistureSensors: MoistureSensor[] = [];
 }
+
+export class TimeRange {
+    from: Date;
+    to: Date;
+}

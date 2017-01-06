@@ -1,3 +1,23 @@
+
+<nav class="navbar navbar-light bg-faded">
+  <a class="navbar-brand" href="#">Oh, Balcony!</a>
+
+  <div class="nav-buttons">
+    <div ngbDropdown class="d-inline-block">
+      <button class="btn btn-secondary" id="dropdownMenu1" ngbDropdownToggle><span class="fa fa-line-chart" aria-hidden="true"></span> {{timeRanges[selectedTimeRange]}}</button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <button class="dropdown-item" (click)="selectTimeRange('day')">Last day</button>
+        <button class="dropdown-item" (click)="selectTimeRange('3days')">Last 3 days</button>
+        <button class="dropdown-item" (click)="selectTimeRange('week')">Last week</button>
+        <button class="dropdown-item" (click)="selectTimeRange('2weeks')">Last 2 weeks</button>
+        <button class="dropdown-item" (click)="selectTimeRange('month')">Last month</button>
+        <button class="dropdown-item" (click)="selectTimeRange('year')">Last year</button>
+      </div>
+    </div>
+    <button class="btn btn-danger"><span class="fa fa-wrench" aria-hidden="true"></span> Configure</button>
+  </div>
+</nav>
+
 <div *ngIf="systemState">
-  <zone *ngFor="let hardwareInZone of hardwareInZones" [hardwareInZone]="hardwareInZone"></zone>
+  <zone *ngFor="let hardwareInZone of hardwareInZones" [hardwareInZone]="hardwareInZone" [timeRange]="timeRange" ></zone>
 </div>

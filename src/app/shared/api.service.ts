@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { Headers, Http, URLSearchParams } from '@angular/http';
 
-import { SystemState } from './model';
+import { SystemState, TimeRange } from './model';
 
 @Injectable()
 export class ApiService {
@@ -10,6 +10,7 @@ export class ApiService {
   private apiEndpointBase = 'http://localhost:8080/api';
 
   private endpointSystemState = '/systemState';
+  private endpointSensorValues = '/sensorValues';
 
   constructor(private http: Http) { }
 
@@ -19,6 +20,21 @@ export class ApiService {
       .then(response => {
         let jsonData = response.json();
         return jsonData as SystemState;
+      })
+      .catch(this.handleError);
+  }
+
+  getSensorValues(timeRange: TimeRange): Promise<Object[]> {
+    let params: URLSearchParams = new URLSearchParams();
+    params.set('fromTimeMillis', timeRange.from.getTime().toString());
+    params.set('toTimeMillis', timeRange.to.getTime().toString());
+
+    return this.http.get(this.apiEndpointBase + this.endpointSensorValues,
+      { search: params })
+      .toPromise()
+      .then(response => {
+        let jsonData = response.json();
+        return jsonData.values;
       })
       .catch(this.handleError);
   }

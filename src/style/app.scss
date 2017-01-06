@@ -27,9 +27,12 @@ main {
     @extend .container;
 }
 
-h1 {
-    margin-top: 1rem;
-    margin-bottom: 1.5rem;
+nav {
+  margin-bottom: 1.5rem;
+}
+.nav-buttons {
+  display: block;
+  text-align: right;
 }
 
 .component {
@@ -45,12 +48,16 @@ zone {
 .hardware {
   @extend .component;
 }
-
 .hardware-icon {
   display: inline-block;
   width: 3rem;
   text-align: center;
+
+  img {
+    height: 2.5rem;
+  }
 }
-.hardware-icon img {
-  height: 2.5rem;
+.hardware-chart {
+  padding-top: 2em;
 }
+

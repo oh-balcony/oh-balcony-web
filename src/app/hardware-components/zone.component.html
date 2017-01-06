@@ -1,4 +1,4 @@
 <tank *ngFor="let tank of hardwareInZone.tanks" [tank]="tank" class="hardware"></tank>
 <pump *ngFor="let pump of hardwareInZone.pumps" [pump]="pump" class="hardware"></pump>
 <valve *ngFor="let valve of hardwareInZone.valves" [valve]="valve" class="hardware"></valve>
-<moisture-sensor *ngFor="let sensor of hardwareInZone.moistureSensors" [sensor]="sensor" class="hardware"></moisture-sensor>
+<moisture-sensor *ngFor="let sensor of hardwareInZone.moistureSensors" [sensor]="sensor" [timeRange]="timeRange" class="hardware"></moisture-sensor>

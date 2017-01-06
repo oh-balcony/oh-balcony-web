@@ -14,13 +14,16 @@ import { routing } from './app.routing';
 
 import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
 
+import { ChartsModule } from 'ng2-charts/ng2-charts';
+
 @NgModule({
   imports: [
     NgbModule.forRoot(),
     BrowserModule,
     HttpModule,
     FormsModule,
-    routing
+    routing,
+    ChartsModule
   ],
   declarations: [
     AppComponent,

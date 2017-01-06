@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { HardwareInZone } from '../shared';
+import { HardwareInZone, TimeRange } from '../shared';
 
 @Component({
   selector: 'zone',
@@ -10,4 +10,7 @@ import { HardwareInZone } from '../shared';
 export class ZoneComponent {
   @Input()
   hardwareInZone: HardwareInZone;
+
+  @Input()
+  timeRange: TimeRange;
 }
