@@ -1,6 +1,8 @@
 Oh, Balcony! - Web User Interface
 =================================
 
+Note: Currently under development and not functional yet.
+
 Install dependencies:
 
     npm install
